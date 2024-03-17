@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Akash Singh",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -48,
+      "left": -4.76,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80.4,
+      "left": 147.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 23.15,
+      "left": 124.8,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
+    [ "r1:2", "esp:22", "green", [ "h-38.95", "v-57.95" ] ],
+    [ "led1:A", "r1:1", "green", [ "v38.4" ] ]
+  ],
+  "dependencies": {}
+}
